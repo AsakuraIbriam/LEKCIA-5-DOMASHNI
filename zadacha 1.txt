@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+
+int main()
+{
+    char c;
+    double a, b;
+
+    while(scanf("%lf %c %lf", &a, &c, &b) != EOF) {
+        if(c == '-' || c == '/' || c == 'x' || c== '+') {
+            switch(c) {
+            case '+':
+                printf("%.2lf", a + b);
+                break;
+            case '-':
+                printf("%.2lf", a - b);
+                break;
+            case '/':
+                printf("%.2lf", a / b);
+                break;
+            case 'x':
+                printf("%.2lf", a * b);
+                break;
+        }
+        printf("\n");
+    }else {
+        fprintf(stderr, "Invalid input\n");
+        }
+
+    }
+
+
+    return 0;
+
+}

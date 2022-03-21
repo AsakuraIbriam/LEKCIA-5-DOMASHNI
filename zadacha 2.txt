@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int calcAreaAndPerimeter(double a, double b, double c, double *A, double *P);
+int main()
+{
+    double a, b, c, A, P;
+
+
+
+    printf("Ender sides a, b, c: ");
+    while(scanf(" %lf %lf %lf", &a, &b, &c) != EOF){
+      if((calcAreaAndPerimeter(a, b, c, &A, &P)))  {
+        fprintf(stderr, "Invalid triangle sides size\n");
+    }
+
+    
+    printf("Area = %.2lf and Perimeter is = %.2lf", A, P);
+    printf("\n");
+    printf("Ender sides a, b, c: ");
+
+    }
+    return 0;
+
+}
+int calcAreaAndPerimeter(double a, double b, double c, double *A, double *P) {
+    if((!(a + b > c) || !(a + c > b) || !(b + c > a)) || a < 0 || b < 0 || c < 0) {
+        return 1;
+    }
+    *A = 1.0*(a + b + c)/2;
+    *P = sqrt(((*A)*((*A)-a))*(((*A)-b))*(((*A)-c)));
+        return 0;
+    }
+

@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+
+int quadEq(double a, double b, double c, double *p1, double *p2);
+int main()
+{
+    double a, b, c;
+    double x1, x2;
+
+
+    printf("Enter a, b and c coefficients: ");
+    while(scanf("%lf %lf %lf", &a, &b, &c) != EOF) {
+
+
+   if(quadEq(a, b, c, &x1, &x2) == -1) {
+    fprintf(stderr, "Complex roots\n");
+   } else {
+        printf("x1 = %lf x2 = %lf\n", x1, x2);
+   }
+
+    printf("Enter a, b and c coefficients: ");
+    }
+
+}
+
+int quadEq(double a, double b, double c, double *p1, double *p2) {
+    double dis = b*b - 4 * a * c;
+    if(dis < 0) {
+    return -1;
+    }
+    if(dis == 0) {
+        *p1 = (-b/2*a);
+         *p2 = (-b/2*a);
+         printf("%lf %lf", *p1, *p2);
+        return 0;
+    }
+    if(dis > 0) {
+        *p1 = (-b + sqrt(dis)) / 2*a;
+        *p2 = (-b - sqrt(dis)) / 2*a;
+        return 0;
+    }
+
+};

@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int rectangle(double w, double h, double *S, double *P);
+int main()
+{
+    double w, h;
+    double S, P;
+    printf("Enter the height and the width of the rectangle: ");
+    while(scanf("%lf %lf", &w, &h) != EOF) {
+            if(rectangle(w, h, &S, &P) == -1){
+                fprintf(stderr,"Invalid width and height\n");
+            }
+        printf("Perimeter = %.2lf Surface = %.2lf\n", S, P);
+    }
+
+    return 0;
+
+}
+int rectangle(double w, double h, double *S, double *P){
+    if(w <= 0 || h <= 0) {
+        return -1;
+    }
+    *S = w*h;
+    *P = 2*w + 2*h;
+    return 0;
+
+}
